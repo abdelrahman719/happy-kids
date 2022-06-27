@@ -1,0 +1,561 @@
+/*---------------- start of loading page------------------------*/
+
+@keyframes loader {
+    0%,
+    10%,
+    100% {
+        width: 40px;
+        height: 40px;
+    }
+    65% {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@keyframes loaderBlock {
+    0%,
+    30% {
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #0fa0c5;
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes loaderBlockInverse {
+    0%,
+    20% {
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #0fa0c5;
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+
+.loader-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 9999999;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+    animation: loader 1.2s infinite ease-in-out;
+}
+
+.loader span {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #0fa0c5;
+    animation: loaderBlock 1.2s infinite ease-in-out both;
+}
+
+.loader span:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.loader span:nth-child(2) {
+    top: 0;
+    right: 0;
+    animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+}
+
+.loader span:nth-child(3) {
+    bottom: 0;
+    left: 0;
+    animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+}
+
+.loader span:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+
+
+/*---------------- end of loading page------------------------*/
+
+body {
+    font-family: 'Comic Neue', cursive;
+    line-height: 1.42857143;
+    box-sizing: border-box;
+    cursor: default;
+    color: #fee6b4;
+}
+
+
+/*------------------------ header section---------------*/
+
+.intro-header {
+    background-color: #8fc0ea;
+    background-image: url(../imgs/clouds_retina-36qx5rbe4857rvouhig7ii.png), url(../imgs/pattern_balloons.png), url(../imgs/pattern_balloons.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom left, bottom right;
+}
+
+.container-header {
+    position: relative;
+    top: 10vh;
+}
+
+.my-nav-item {
+    padding: 7px 15px;
+    border-radius: 10px;
+    line-height: 1.5;
+    font-size: 16px;
+    box-shadow: 0px 0px 5px black;
+    background-color: #3185cb;
+    margin-left: .25rem;
+    margin-bottom: .5rem;
+}
+
+.my-nav-item a {
+    color: #fcfff8 !important;
+}
+
+.my-nav-item:hover {
+    background-color: #fee6b4;
+    color: #0fa0c5 !important;
+}
+
+.my-nav-item a:hover {
+    color: #0fa0c5 !important;
+}
+
+.active {
+    background-color: #fee6b4;
+}
+
+.active a {
+    color: #3185cb !important;
+}
+
+.caption {
+    border: solid 10px #fcfff8;
+    border: solid 10px #fee6b4;
+    border-radius: 10px;
+    width: 85vw;
+    height: 65vh;
+}
+
+.container_skitter {
+    width: 100%!important;
+    height: 100%!important;
+}
+
+.image_main {
+    width: 100%!important;
+    height: 100%!important;
+}
+
+.box_skitter_large {
+    max-width: 408px !important;
+    max-height: 275px !important;
+}
+
+.box_clone {
+    width: 100%!important;
+    height: 100%!important;
+}
+
+.cube {
+    width: 100% !important;
+}
+
+
+/*------------ categories   section -------*/
+
+.w-70 {
+    width: 70% !important;
+}
+
+#hexGrid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: 15px;
+    list-style-type: none;
+}
+
+.hex {
+    position: relative;
+    visibility: hidden;
+    outline: 1px solid transparent;
+    /* fix for jagged edges in FF on hover transition */
+}
+
+.hex::after {
+    content: '';
+    display: block;
+    padding-bottom: 86.602%;
+    /* =  100 / tan(60) * 1.5 */
+}
+
+.hexIn {
+    position: absolute;
+    width: 96%;
+    padding-bottom: 110.851%;
+    /* =  width / sin(60) */
+    margin: 0 2%;
+    overflow: hidden;
+    visibility: hidden;
+    outline: 1px solid transparent;
+    /* fix for jagged edges in FF on hover transition */
+    -webkit-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    -ms-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+}
+
+.hexIn * {
+    position: absolute;
+    visibility: visible;
+    outline: 1px solid transparent;
+    /* fix for jagged edges in FF on hover transition */
+}
+
+.hexLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+    -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+    transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+}
+
+
+/*** HEX CONTENT **********************************************************************/
+
+.hex img {
+    left: -100%;
+    right: -100%;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-transform: rotate3d(0, 0, 0, 0deg);
+    -ms-transform: rotate3d(0, 0, 0, 0deg);
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+
+.hex h1,
+.hex p {
+    text-align: center;
+    width: 100%;
+    padding: 5%;
+    color: white;
+    box-sizing: border-box;
+    background-color: rgba(0, 9, 0, 0.0);
+    font-weight: 300;
+    -webkit-transition: -webkit-transform .2s ease-out, opacity .3s ease-out;
+    transition: transform .2s ease-out, opacity .3s ease-out;
+}
+
+.hex h1 {
+    bottom: 50%;
+    padding-top: 50%;
+    font-weight: 900;
+    font-size: 1.5vw;
+    z-index: 1;
+    -webkit-transform: translate3d(0, -100%, 0);
+    -ms-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+}
+
+.hex p {
+    top: 50%;
+    padding-bottom: 50%;
+    font-size: 2.5vw;
+    font-weight: 100;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: antiquewhite;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+}
+
+
+/*** HOVER EFFECT  **********************************************************************/
+
+.hexLink:hover h1,
+.hexLink:focus h1,
+.hexLink:hover p,
+.hexLink:focus p {
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+
+/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+
+@media (min-width:1201px) {
+    /* <- 5-4  hexagons per row */
+    #hexGrid {
+        padding-bottom: 7.4%
+    }
+    .hex {
+        width: 33.333%;
+        /* = 100 / 3 */
+    }
+    .hex:nth-child(5n+4) {
+        /* first hexagon of even rows */
+        margin-left: 16.666%;
+        /* = width of .hex / 2  to indent even rows */
+    }
+}
+
+@media (max-width: 1200px) and (min-width:901px) {
+    /* <- 4-3  hexagons per row */
+    #hexGrid {
+        padding-bottom: 7.4%
+    }
+    .hex {
+        width: 33.333%;
+        /* = 100 / 3 */
+    }
+    .hex:nth-child(5n+4) {
+        /* first hexagon of even rows */
+        margin-left: 16.666%;
+        /* = width of .hex / 2  to indent even rows */
+    }
+}
+
+@media (max-width: 900px) and (min-width:601px) {
+    /* <- 3-2  hexagons per row */
+    #hexGrid {
+        padding-bottom: 7.4%
+    }
+    .hex {
+        width: 33.333%;
+        /* = 100 / 3 */
+    }
+    .hex:nth-child(5n+4) {
+        /* first hexagon of even rows */
+        margin-left: 16.666%;
+        /* = width of .hex / 2  to indent even rows */
+    }
+}
+
+@media (max-width: 600px) {
+    /* <- 2-1  hexagons per row */
+    #hexGrid {
+        padding-bottom: 11.2%
+    }
+   /* .hex {                 >> here if wanted 2 div in small view
+        /*width: 50%;*/
+        /* = 100 / 3 
+    }
+    .hex:nth-child(3n+3) {
+        /* first hexagon of even rows */
+      /*  margin-left: 25%;*/
+        /* = width of .hex / 2  to indent even rows 
+    }*/
+
+    .hex {
+        width: 100%;
+        padding-bottom: 10vh;
+       
+        /* = 100 / 3 */
+       
+    }
+}
+
+@media (max-width: 400px) {
+    #hexGrid {
+        font-size: 13px;
+    }
+}
+
+.categories {
+    background-image: url(../imgs/back2.jpg);
+    background-attachment: fixed;
+}
+
+.layer-cat {
+    background-color: rgba(252, 245, 213, 0.589);
+    border-top: solid 10px #fee6b4;
+    border-bottom: solid 10px #fee6b4;
+    color: #a2a1b6;
+}
+
+
+/*------------  projects section -------*/
+
+.projects {
+    color: #a2825c;
+    background-color: beige;
+}
+
+.scaling {
+    animation-name: scaling;
+    animation-duration: 1.5s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    margin: auto;
+}
+
+@keyframes scaling {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 150px;
+    }
+}
+
+@keyframes scaling2 {
+    0% {
+       transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+@media (max-width: 390px) {
+    .scaling {
+        animation-name: scaling2;
+        animation-duration: 1.5s;
+        animation-direction: alternate-reverse;
+        animation-iteration-count: infinite;
+        margin: auto;
+     
+    }
+}
+
+.img-border {
+    border: solid 10px #fee6b4;
+    border-radius: 10px;
+}
+
+.btn-ads {
+    display: inline-block;
+    background: #f4ca428f;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-radius: 5px;
+    box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    -webkit-transition: all ease-in-out 300ms;
+    transition: all ease-in-out 300ms;
+}
+
+.btn-ads:hover {
+    box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+    -webkit-transform: translate(0px, -10px) scale(1.2);
+    transform: translate(0px, -10px) scale(1.2);
+}
+
+
+/**********************************************/
+
+.footer
+{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d0e4f7+0,73b1e7+41,73b1e7+61,0a77d5+80,539fe1+93,87bcea+100 */
+background: #d0e4f7; /* Old browsers */
+background: -moz-linear-gradient(top,  #d0e4f7 0%, #73b1e7 41%, #73b1e7 61%, #0a77d5 80%, #539fe1 93%, #87bcea 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #d0e4f7 0%,#73b1e7 41%,#73b1e7 61%,#0a77d5 80%,#539fe1 93%,#87bcea 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #d0e4f7 0%,#73b1e7 41%,#73b1e7 61%,#0a77d5 80%,#539fe1 93%,#87bcea 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* IE6-9 */
+
+    color: #352b1f ;
+}
+
+
+.line
+{
+    height: 0.1px;
+    background-color: gainsboro;
+}
+.setMailInput
+{
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f5f6f6+0,dbdce2+21,b8bac6+49,dddfe3+80,f5f6f6+100;Grey+Pipe */
+background: rgb(245,246,246); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(245,246,246,1) 0%, rgba(219,220,226,1) 21%, rgba(184,186,198,1) 49%, rgba(221,223,227,1) 80%, rgba(245,246,246,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(245,246,246,1) 0%,rgba(219,220,226,1) 21%,rgba(184,186,198,1) 49%,rgba(221,223,227,1) 80%,rgba(245,246,246,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(245,246,246,1) 0%,rgba(219,220,226,1) 21%,rgba(184,186,198,1) 49%,rgba(221,223,227,1) 80%,rgba(245,246,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 ); /* IE6-9 */
+
+
+    border: 0 solid #CCCCCC !important;
+    border-radius: 0 !important;
+    height: 48px !important;
+    color: black !important;
+    font-weight: bold;
+    width: 70% !important;
+}
+.subBtn
+{
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f1e767+0,feb645+100;Yellow+3D */
+background: rgb(241,231,103); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(241,231,103,1) 0%,rgba(254,182,69,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(241,231,103,1) 0%,rgba(254,182,69,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645',GradientType=0 ); /* IE6-9 */
+
+    border: 0 solid #CCCCCC;
+    color: #FFFFFF;
+    height: 42px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    padding: 0 18px;
+    text-transform: uppercase;
+}
+.contact p
+{
+    margin-left: 10px;
+    display: inline;
+    font-size: 20px;
+    font-weight: lighter;
+    
+}
+.subBtn:hover
+{
+    transform: scale(1.05);
+    color: red;
+}
+.contact i
+{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f1e767+0,feb645+100;Yellow+3D */
+color: rgb(241,231,103); /* Old browsers */
+color: -moz-linear-gradient(top,  rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%); /* FF3.6-15 */
+color: -webkit-linear-gradient(top,  rgba(241,231,103,1) 0%,rgba(254,182,69,1) 100%); /* Chrome10-25,Safari5.1-6 */
+color: linear-gradient(to bottom,  rgba(241,231,103,1) 0%,rgba(254,182,69,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645',GradientType=0 ); /* IE6-9 */
+
+    font-size: 25px;
+    padding: 20px;
+    
+}
+.contact p:hover
+{
+    color: red;
+   
+}
+.contact i:hover{
+    color: red;
+}
+/* --------------------------------------------- -  the end of footer */
+

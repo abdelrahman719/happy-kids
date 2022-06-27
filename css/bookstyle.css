@@ -1,0 +1,109 @@
+/*******************   book  shelf **********************/
+body
+{
+  background-color: #fee6b4 ;
+}
+
+  .library
+  {
+    
+    background: linear-gradient(#8fc0ea 73vh,#fcf5d5 73vh 75vh , #fee6b4 75vh 100vh );
+    
+  }
+  .library-cloud
+  {
+ 
+    background-image: url(../imgs/clouds_retina-36qx5rbe4857rvouhig7ii.png), url(../imgs/pattern_balloons.png), url(../imgs/pattern_balloons.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom left, bottom right;
+    
+  }
+  .rate
+  {
+    width: 30px;
+    height: 45px;
+    background-color: skyblue;
+    position: absolute; /* to the book*/
+    top: 0;
+    left: 10;
+    font-size: large;
+ 
+    
+  }
+  .readen
+  {
+    color: greenyellow;
+    position: absolute;
+    top: 0;
+  left: 75%;
+  }
+ 
+  .book-cont   /* carry all and move to the shelf */
+  {
+    position: relative;
+    transform: scale(.7);
+    bottom: -20%;
+    z-index: 10;
+  }
+  
+  .book-cont:hover
+  {
+    transform: scale(.85) ;
+    
+  }
+  .shelf
+  {
+    transform: scale(1,.9);
+  }
+  
+ 
+.
+/*******************  flibbing book  **********************/
+.w-90
+{
+  width: 90% !important;
+}
+.flipbook {
+    width: 50vw;
+    height: 90vh;
+  /* border-radius:47% 53% 52% 48% / 38% 38% 62% 62%  ;*/
+  
+}
+/*background-image: url(imgs/cloud-svg-border.svg);*/
+
+
+.flipbook .page {
+    background-color: palegoldenrod;
+    font-size: 20px;
+    text-align: center;
+  
+  
+}
+
+.flipbook .page-wrapper {
+    -webkit-perspective: 2000px;
+    -moz-perspective: 2000px;
+    -ms-perspective: 2000px;
+    -o-perspective: 2000px;
+    perspective: 2000px;
+    
+}
+
+.flipbook .hard {
+    background: #ccc !important;
+    color: #333;
+    -webkit-box-shadow: inset 0 0 5px #666;
+    -moz-box-shadow: inset 0 0 5px #666;
+    -o-box-shadow: inset 0 0 5px #666;
+    -ms-box-shadow: inset 0 0 5px #666;
+    box-shadow: inset 0 0 5px #666;
+    font-weight: bold;
+}
+
+
+
+
+
+/***********************************************/
+
+
